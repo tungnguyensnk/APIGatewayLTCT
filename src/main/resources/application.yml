@@ -1,0 +1,10 @@
+spring:
+    cloud:
+        gateway:
+            routes:
+                -   id: sp01
+                    uri: http://103.179.173.95:8081
+                    predicates:
+                        - Path=/**
+                    filters:
+                        - RewritePath=/(?<path>.*), /$\{path}
